@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:playground/screens/shimmer.dart';
+import 'package:playground/screens/shimmer/shimmer.dart';
 import 'package:playground/size_config.dart';
 
 class Wrapper extends StatefulWidget {
