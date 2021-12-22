@@ -49,8 +49,8 @@ class _ShimmerScreenState extends State<ShimmerScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            width: 48.0,
-                            height: 48.0,
+                            width: SizeConfig.screenWidth * 0.3,
+                            height: SizeConfig.screenHeight * 0.1,
                             color: Colors.white,
                           ),
                           const Padding(
@@ -62,7 +62,7 @@ class _ShimmerScreenState extends State<ShimmerScreen> {
                               children: <Widget>[
                                 Container(
                                   width: double.infinity,
-                                  height: 8.0,
+                                  height: getProportionateScreenHeight(8),
                                   color: Colors.white,
                                 ),
                                 const Padding(
@@ -70,15 +70,15 @@ class _ShimmerScreenState extends State<ShimmerScreen> {
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 8.0,
+                                  height: getProportionateScreenHeight(8),
                                   color: Colors.white,
                                 ),
                                 const Padding(
                                   padding: EdgeInsets.symmetric(vertical: 2.0),
                                 ),
                                 Container(
-                                  width: 40.0,
-                                  height: 8.0,
+                                  width: getProportionateScreenWidth(40),
+                                  height: getProportionateScreenHeight(8),
                                   color: Colors.white,
                                 ),
                               ],
