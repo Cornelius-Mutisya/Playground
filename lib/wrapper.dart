@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:playground/screens/containerTransform/container_transform.dart';
+import 'package:playground/screens/dio/dio_screen.dart';
+import 'package:playground/screens/neumorphism/neumorphism.dart';
 import 'package:playground/screens/segmented/segmented_control.dart';
 import 'package:playground/screens/shimmer/shimmer.dart';
+import 'package:playground/screens/simpleDi/simple_di.dart';
 import 'package:playground/size_config.dart';
 
 class Wrapper extends StatefulWidget {
@@ -26,6 +29,22 @@ class _WrapperState extends State<Wrapper> {
             width: SizeConfig.screenWidth * 0.5,
             child: Column(
               children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SimpleDI()));
+                        },
+                        child: const Text('Simple DI'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.redAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Row(
                   children: [
                     Expanded(
@@ -71,6 +90,38 @@ class _WrapperState extends State<Wrapper> {
                         child: const Text('Transform'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blueAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const Neumorphism()));
+                        },
+                        child: const Text('Neumorphism'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.grey.shade300,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const DioScreen()));
+                        },
+                        child: const Text('Dio'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.redAccent,
                         ),
                       ),
                     ),

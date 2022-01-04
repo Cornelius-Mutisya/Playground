@@ -37,6 +37,9 @@ dependencies:
   firebase_messaging: ^11.2.4
   overlay_support: ^1.2.1
   animations: ^2.0.2
+  web3dart: ^2.3.3
+  dio: ^4.0.4
+  flutter_simple_dependency_injection: ^2.0.0
 
 dev_dependencies:
   flutter_test:
