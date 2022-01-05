@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:playground/models/dio_model.dart';
-import 'package:playground/services/dio_client.dart';
+import 'package:playground/data/models/dio_model.dart';
+import 'package:playground/data/services/dio_client.dart';
 
 class DioScreen extends StatefulWidget {
   const DioScreen({Key? key}) : super(key: key);

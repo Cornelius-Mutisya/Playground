@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:playground/models/dio_model.dart';
+import 'package:playground/data/models/dio_model.dart';
 
 class DioClient {
   final Dio _dio = Dio();

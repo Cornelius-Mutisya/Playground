@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:playground/cubit/counter_cubit.dart';
+import 'package:playground/logic/cubit/counter_cubit.dart';
+import 'package:playground/size_config.dart';
+import 'package:playground/ui/screens/bloc/second_screen.dart';
 
 class FlutterBocExample extends StatefulWidget {
   const FlutterBocExample({Key? key}) : super(key: key);
@@ -84,6 +86,20 @@ class _FlutterBocExampleState extends State<FlutterBocExample> {
                   ),
                 ],
               ),
+              SizedBox(height: getProportionateScreenHeight(20)),
+              MaterialButton(
+                  color: Colors.redAccent,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => BlocProvider.value(
+                          value: BlocProvider.of<CounterCubit>(context),
+                          child: const SecondScreen(),
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text('Second Screen'))
             ],
           ),
         ),

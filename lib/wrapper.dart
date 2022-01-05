@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:playground/screens/bloc/flutter_bloc.dart';
-import 'package:playground/screens/containerTransform/container_transform.dart';
-import 'package:playground/screens/dio/dio_screen.dart';
-import 'package:playground/screens/neumorphism/neumorphism.dart';
-import 'package:playground/screens/segmented/segmented_control.dart';
-import 'package:playground/screens/shimmer/shimmer.dart';
-import 'package:playground/screens/simpleDi/simple_di.dart';
 import 'package:playground/size_config.dart';
+import 'package:playground/ui/screens/bloc/flutter_bloc.dart';
+import 'package:playground/ui/screens/containerTransform/container_transform.dart';
+import 'package:playground/ui/screens/dio/dio_screen.dart';
+import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
+import 'package:playground/ui/screens/segmented/segmented_control.dart';
+import 'package:playground/ui/screens/shimmer/shimmer.dart';
+import 'package:playground/ui/screens/simpleDi/simple_di.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({Key? key}) : super(key: key);
