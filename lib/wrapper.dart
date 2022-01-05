@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playground/screens/bloc/flutter_bloc.dart';
 import 'package:playground/screens/containerTransform/container_transform.dart';
 import 'package:playground/screens/dio/dio_screen.dart';
 import 'package:playground/screens/neumorphism/neumorphism.dart';
@@ -122,6 +123,22 @@ class _WrapperState extends State<Wrapper> {
                         child: const Text('Dio'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.redAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const FlutterBocExample()));
+                        },
+                        child: const Text('Bloc'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.greenAccent,
                         ),
                       ),
                     ),
