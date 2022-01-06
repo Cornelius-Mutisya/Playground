@@ -133,8 +133,7 @@ class _WrapperState extends State<Wrapper> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const FlutterBocExample()));
+                          Navigator.of(context).pushNamed('/blocExample');
                         },
                         child: const Text('Bloc'),
                         style: ElevatedButton.styleFrom(

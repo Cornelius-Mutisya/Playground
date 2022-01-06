@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:playground/logic/cubit/counter_cubit.dart';
 import 'package:playground/size_config.dart';
 
-class SecondScreen extends StatefulWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+class ThirdScreen extends StatefulWidget {
+  const ThirdScreen({Key? key}) : super(key: key);
 
   @override
-  _SecondScreenState createState() => _SecondScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _SecondScreenState extends State<SecondScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Second Screen'),
-          backgroundColor: Colors.redAccent,
+          title: const Text('Third Screen'),
+          backgroundColor: Colors.blueGrey,
         ),
         body: Center(
           child: Column(
