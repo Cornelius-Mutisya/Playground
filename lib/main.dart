@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:playground/logic/cubit/counter_cubit.dart';
 import 'package:playground/ui/router/app_router.dart';
@@ -7,7 +9,9 @@ import 'package:playground/ui/screens/bloc/third_screen.dart';
 import 'package:playground/ui/wrapper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -22,6 +26,7 @@ class _MyAppState extends State<MyApp> {
   // final CounterCubit _counterCubit = CounterCubit();
 
   final AppRouter _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CounterCubit>(

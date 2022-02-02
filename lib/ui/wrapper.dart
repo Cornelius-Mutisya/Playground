@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:playground/size_config.dart';
 import 'package:playground/ui/screens/bloc/flutter_bloc.dart';
 import 'package:playground/ui/screens/containerTransform/container_transform.dart';
 import 'package:playground/ui/screens/dio/dio_screen.dart';
+import 'package:playground/ui/screens/firebase/firebase.dart';
 import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
+import 'package:playground/ui/screens/onBoarding/onboarding.dart';
 import 'package:playground/ui/screens/segmented/segmented_control.dart';
 import 'package:playground/ui/screens/shimmer/shimmer.dart';
 import 'package:playground/ui/screens/simpleDi/simple_di.dart';
@@ -138,6 +142,38 @@ class _WrapperState extends State<Wrapper> {
                         child: const Text('Bloc'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.greenAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const FirebaseScreen()));
+                        },
+                        child: const Text('Services'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.purpleAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const OnBoardingScreen()));
+                        },
+                        child: const Text('Services'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.blueGrey,
                         ),
                       ),
                     ),
