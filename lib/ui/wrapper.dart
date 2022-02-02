@@ -171,7 +171,7 @@ class _WrapperState extends State<Wrapper> {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const OnBoardingScreen()));
                         },
-                        child: const Text('Services'),
+                        child: const Text('Onboarding'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blueGrey,
                         ),

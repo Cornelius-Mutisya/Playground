@@ -20,7 +20,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   Widget _buildFullScreenImage() {
     return Image.asset(
-      'assets/images/onboarding.png',
+      'assets/images/ebook.png',
       fit: BoxFit.cover,
       height: double.infinity,
       width: double.infinity,
@@ -56,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 16, right: 16),
-            child: _buildImage('flutter.png', 100),
+            child: _buildImage('ebook', 100),
           ),
         ),
       ),
@@ -76,21 +76,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           title: "Fractional shares",
           body:
               "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('img1.jpg'),
+          image: _buildImage('learn'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Learn as you go",
           body:
               "Download the Stockpile app and master the market with our mini-lesson.",
-          image: _buildImage('img2.jpg'),
+          image: _buildImage('manthumbs'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Kids and teens",
           body:
               "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('img3.jpg'),
+          image: _buildImage('readingbook'),
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -108,7 +108,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         PageViewModel(
           title: "Another title page",
           body: "Another beautiful body text for this example onboarding",
-          image: _buildImage('img2.jpg'),
+          image: _buildImage('readingbook'),
           footer: ElevatedButton(
             onPressed: () {
               introKey.currentState?.animateScroll(0);
@@ -142,7 +142,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             bodyAlignment: Alignment.bottomCenter,
             imageAlignment: Alignment.topCenter,
           ),
-          image: _buildImage('img1.jpg'),
+          image: _buildImage('learn'),
           reverse: true,
         ),
       ],
