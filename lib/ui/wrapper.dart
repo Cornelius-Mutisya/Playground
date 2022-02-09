@@ -8,6 +8,7 @@ import 'package:playground/ui/screens/dio/dio_screen.dart';
 import 'package:playground/ui/screens/firebase/firebase.dart';
 import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
 import 'package:playground/ui/screens/onBoarding/onboarding.dart';
+import 'package:playground/ui/screens/search/search.dart';
 import 'package:playground/ui/screens/segmented/segmented_control.dart';
 import 'package:playground/ui/screens/shimmer/shimmer.dart';
 import 'package:playground/ui/screens/simpleDi/simple_di.dart';
@@ -174,6 +175,25 @@ class _WrapperState extends State<Wrapper> {
                         child: const Text('Onboarding'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blueGrey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const FilterSearch()));
+                        },
+                        child: const Text(
+                          'FilterSearch',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.yellowAccent,
                         ),
                       ),
                     ),
