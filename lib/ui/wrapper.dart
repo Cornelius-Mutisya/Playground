@@ -1,17 +1,23 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:playground/size_config.dart';
-import 'package:playground/ui/screens/bloc/flutter_bloc.dart';
+import 'package:playground/ui/screens/charts/radial_bar_gradient.dart';
 import 'package:playground/ui/screens/containerTransform/container_transform.dart';
+import 'package:playground/ui/screens/countdown/countdown.dart';
 import 'package:playground/ui/screens/dio/dio_screen.dart';
 import 'package:playground/ui/screens/firebase/firebase.dart';
 import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
 import 'package:playground/ui/screens/onBoarding/onboarding.dart';
+import 'package:playground/ui/screens/qr/qr_scanner.dart';
 import 'package:playground/ui/screens/search/search.dart';
 import 'package:playground/ui/screens/segmented/segmented_control.dart';
 import 'package:playground/ui/screens/shimmer/shimmer.dart';
 import 'package:playground/ui/screens/simpleDi/simple_di.dart';
+import 'package:playground/ui/screens/staggered/staggered_grid.dart';
+import 'package:playground/ui/screens/webview/webview.dart';
+import 'package:playground/ui/websockets/stomp_client_screen.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({Key? key}) : super(key: key);
@@ -21,6 +27,7 @@ class Wrapper extends StatefulWidget {
 }
 
 class _WrapperState extends State<Wrapper> {
+  String _qrResult = '';
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -198,6 +205,132 @@ class _WrapperState extends State<Wrapper> {
                       ),
                     ),
                   ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => WebViewPage()));
+                        },
+                        child: const Text(
+                          'WebViewPage',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.greenAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const RadialBarGradient()));
+                        },
+                        child: const Text(
+                          'RadialBarGradient',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.blueGrey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const CountdownScreen()));
+                        },
+                        child: const Text(
+                          'Countdown Timer',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.blueAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const WebSocketScreen()));
+                        },
+                        child: const Text(
+                          'WebSocketScreen',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.greenAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const StaggeredScreen()));
+                        },
+                        child: const Text(
+                          'StaggeredScreen',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          final String res = await Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const QRCodeScreen()),
+                          );
+                          log('qr addresssssssss: $res');
+                          SchedulerBinding.instance.addPostFrameCallback(
+                            (_) => setState(() {
+                              _qrResult = res;
+                            }),
+                          );
+                        },
+                        child: const Text(
+                          'QRCodeScreen',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.blueGrey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  'QR Result: $_qrResult',
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),
