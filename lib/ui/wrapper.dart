@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:playground/size_config.dart';
+import 'package:playground/ui/screens/battery/batter_indicator.dart';
 import 'package:playground/ui/screens/charts/radial_bar_gradient.dart';
 import 'package:playground/ui/screens/containerTransform/container_transform.dart';
 import 'package:playground/ui/screens/countdown/countdown.dart';
 import 'package:playground/ui/screens/dio/dio_screen.dart';
+import 'package:playground/ui/screens/dotted/dotted_border.dart';
 import 'package:playground/ui/screens/firebase/firebase.dart';
 import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
 import 'package:playground/ui/screens/onBoarding/onboarding.dart';
@@ -288,10 +290,50 @@ class _WrapperState extends State<Wrapper> {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const BatteryIndicatorScreen()));
+                        },
+                        child: const Text(
+                          'BatteryIndicatorScreen',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => const StaggeredScreen()));
                         },
                         child: const Text(
                           'StaggeredScreen',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const DottedBorderExample()));
+                        },
+                        child: const Text(
+                          'DottedBorder',
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
