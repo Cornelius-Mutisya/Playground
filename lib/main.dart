@@ -1,18 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:playground/logic/cubit/counter_cubit.dart';
 import 'package:playground/ui/router/app_router.dart';
-import 'package:playground/ui/screens/bloc/flutter_bloc.dart';
-import 'package:playground/ui/screens/bloc/second_screen.dart';
-import 'package:playground/ui/screens/bloc/third_screen.dart';
-import 'package:playground/ui/wrapper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {

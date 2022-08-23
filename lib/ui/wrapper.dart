@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:playground/size_config.dart';
 import 'package:playground/ui/screens/battery/batter_indicator.dart';
+import 'package:playground/ui/screens/call/call_log_screen.dart';
 import 'package:playground/ui/screens/charts/radial_bar_gradient.dart';
 import 'package:playground/ui/screens/containerTransform/container_transform.dart';
 import 'package:playground/ui/screens/countdown/countdown.dart';
@@ -13,6 +14,7 @@ import 'package:playground/ui/screens/firebase/firebase.dart';
 import 'package:playground/ui/screens/neumorphism/neumorphism.dart';
 import 'package:playground/ui/screens/onBoarding/onboarding.dart';
 import 'package:playground/ui/screens/qr/qr_scanner.dart';
+import 'package:playground/ui/screens/riverpod/riverpod_screen.dart';
 import 'package:playground/ui/screens/search/search.dart';
 import 'package:playground/ui/screens/segmented/segmented_control.dart';
 import 'package:playground/ui/screens/shimmer/shimmer.dart';
@@ -38,343 +40,379 @@ class _WrapperState extends State<Wrapper> {
         title: const Text('Playground'),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(getProportionateScreenHeight(10)),
-          child: SizedBox(
-            width: SizeConfig.screenWidth * 0.5,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SimpleDI()));
-                        },
-                        child: const Text('Simple DI'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.redAccent,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(getProportionateScreenHeight(10)),
+            child: SizedBox(
+              width: SizeConfig.screenWidth * 0.5,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const RiverpodScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.redAccent,
+                          ),
+                          child: const Text('Riverpod'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const ShimmerScreen()));
-                        },
-                        child: const Text('Shimmer'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const SimpleDI()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.redAccent,
+                          ),
+                          child: const Text('Simple DI'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const CupertinoSegmentedControlDemo()));
-                        },
-                        child: const Text('CupertinoSegmentedControl'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueGrey,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CallLogScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                          ),
+                          child: const Text('Call Logs'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const OpenContainerTransformDemo()));
-                        },
-                        child: const Text('Transform'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ShimmerScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.grey,
+                          ),
+                          child: const Text('Shimmer'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const Neumorphism()));
-                        },
-                        child: const Text('Neumorphism'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey.shade300,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const CupertinoSegmentedControlDemo()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                          ),
+                          child: const Text('CupertinoSegmentedControl'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const DioScreen()));
-                        },
-                        child: const Text('Dio'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.redAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const OpenContainerTransformDemo()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueAccent,
+                          ),
+                          child: const Text('Transform'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/blocExample');
-                        },
-                        child: const Text('Bloc'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Neumorphism()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.grey.shade300,
+                          ),
+                          child: const Text('Neumorphism'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const FirebaseScreen()));
-                        },
-                        child: const Text('Services'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.purpleAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const DioScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.redAccent,
+                          ),
+                          child: const Text('Dio'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const OnBoardingScreen()));
-                        },
-                        child: const Text('Onboarding'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueGrey,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/blocExample');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.greenAccent,
+                          ),
+                          child: const Text('Bloc'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const FilterSearch()));
-                        },
-                        child: const Text(
-                          'FilterSearch',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.yellowAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const FirebaseScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.purpleAccent,
+                          ),
+                          child: const Text('Services'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => WebViewPage()));
-                        },
-                        child: const Text(
-                          'WebViewPage',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const OnBoardingScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                          ),
+                          child: const Text('Onboarding'),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const RadialBarGradient()));
-                        },
-                        child: const Text(
-                          'RadialBarGradient',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueGrey,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const CountdownScreen()));
-                        },
-                        child: const Text(
-                          'Countdown Timer',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueAccent,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const FilterSearch()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.yellowAccent,
+                          ),
+                          child: const Text(
+                            'FilterSearch',
+                            style: TextStyle(color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const WebSocketScreen()));
-                        },
-                        child: const Text(
-                          'WebSocketScreen',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const BatteryIndicatorScreen()));
-                        },
-                        child: const Text(
-                          'BatteryIndicatorScreen',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => WebViewPage()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.greenAccent,
+                          ),
+                          child: const Text(
+                            'WebViewPage',
+                            style: TextStyle(color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const StaggeredScreen()));
-                        },
-                        child: const Text(
-                          'StaggeredScreen',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const DottedBorderExample()));
-                        },
-                        child: const Text(
-                          'DottedBorder',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const RadialBarGradient()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                          ),
+                          child: const Text(
+                            'RadialBarGradient',
+                            style: TextStyle(color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          final String res = await Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => const QRCodeScreen()),
-                          );
-                          log('qr addresssssssss: $res');
-                          SchedulerBinding.instance.addPostFrameCallback(
-                            (_) => setState(() {
-                              _qrResult = res;
-                            }),
-                          );
-                        },
-                        child: const Text(
-                          'QRCodeScreen',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.blueGrey,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CountdownScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueAccent,
+                          ),
+                          child: const Text(
+                            'Countdown Timer',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Text(
-                  'QR Result: $_qrResult',
-                  style: const TextStyle(color: Colors.black),
-                ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const WebSocketScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.greenAccent,
+                          ),
+                          child: const Text(
+                            'WebSocketScreen',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const BatteryIndicatorScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.grey,
+                          ),
+                          child: const Text(
+                            'BatteryIndicatorScreen',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const StaggeredScreen()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                          ),
+                          child: const Text(
+                            'StaggeredScreen',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const DottedBorderExample()));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                          ),
+                          child: const Text(
+                            'DottedBorder',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            final String res = await Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => const QRCodeScreen()),
+                            );
+                            log('qr addresssssssss: $res');
+                            SchedulerBinding.instance.addPostFrameCallback(
+                              (_) => setState(() {
+                                _qrResult = res;
+                              }),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blueGrey,
+                          ),
+                          child: const Text(
+                            'QRCodeScreen',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'QR Result: $_qrResult',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
